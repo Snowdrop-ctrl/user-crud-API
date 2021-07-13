@@ -1,4 +1,5 @@
 "use strict";
+
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -9,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+    }
+
+    toJSON() {
+      return { ...this.get(), id: undefined };
     }
   }
   User.init(
