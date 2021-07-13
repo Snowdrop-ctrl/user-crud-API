@@ -21,7 +21,3 @@ router.delete("/:id", userControllers.delete);
 router.put("/:id", userControllers.update);
 
 module.exports = router;
-
-git remote add origin https://github.com/nitesh-01/user-crud-API.git
-git branch -M main
-git push -u origin main
