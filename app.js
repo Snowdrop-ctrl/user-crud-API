@@ -10,7 +10,7 @@ app.use(express.json());
 app.use("/user", userRouter);
 
 app.use((req, res, next) => {
-  return res.status(400).send("something went wrond");
+  res.status(404).render("404", { pageTitle: "Page Not Found" });
 });
 
 // server.
