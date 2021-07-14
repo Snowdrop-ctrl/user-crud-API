@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
     const user = await User.create({ name, email, role });
     return res.json(user);
   } catch (error) {
-    return res.status(404).json({
+    return res.status(400).json({
       error: validationErrors(error),
     });
   }
@@ -29,7 +29,7 @@ exports.display = async (req, res, next) => {
 
     return res.json(user);
   } catch (error) {
-    return res.status(404).json({ error: "page not found" });
+    return res.status(500).json({ error: "Internal server error" });
   }
 };
 
