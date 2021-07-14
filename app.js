@@ -1,5 +1,5 @@
 const express = require("express");
-
+require("dotenv").config();
 const { sequelize, User } = require("./models");
 const userRouter = require("./routes/user.router");
 
@@ -14,8 +14,8 @@ app.use((req, res, next) => {
 });
 
 // server.
-app.listen(5000, async () => {
-  console.log("localhost:5000");
+app.listen(process.env.PORT, async () => {
+  console.log(`localhost:${process.env.PORT}`);
   await sequelize.authenticate();
   console.log("Database Connected!");
 });
