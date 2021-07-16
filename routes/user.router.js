@@ -9,7 +9,7 @@ const router = express.Router();
 router.post("/", userControllers.create);
 
 // display all user
-router.get("/all", userControllers.display);
+router.get("/all", userControllers.authenticateToken ,userControllers.display);
 
 // find user
 router.get("/:id", userControllers.find);
@@ -19,5 +19,8 @@ router.delete("/:id", userControllers.delete);
 
 // update user
 router.put("/:id", userControllers.update);
+
+// user login
+router.post("/login", userControllers.userLogin);
 
 module.exports = router;

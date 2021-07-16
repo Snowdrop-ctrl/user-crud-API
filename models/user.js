@@ -1,6 +1,8 @@
 "use strict";
 
 const { Model } = require("sequelize");
+// const bcrypt = require("bcrypt");
+// const { options } = require("../routes/user.router");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -47,6 +49,14 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: { msg: "role not be empty" },
           notNull: { msg: "user must have role" },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: { msg: "password not be empty" },
+          notNull: { msg: "user must have password" },
         },
       },
     },
